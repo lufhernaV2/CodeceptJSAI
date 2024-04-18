@@ -28,6 +28,26 @@ exports.config = {
     customLocator: {
       enabled: true,
       attribute: 'data-test'
+    },
+    heal: {
+      enabled: true
+    }
+  },
+  // ai: {
+  //   request: async (messages) => {
+  //     const OpenAI = require('openai');
+  //     const openai = new OpenAI({apiKey: process.env[]})
+  //     const response = await openai.chat.completions.create({
+  //       model: 'gpt-3.5-turbo-0125',
+  //       messages,
+  //     });
+  //     return response?.data?.choices[0]?.message?.content;
+  //   }
+  // },
+  ai: {
+    request: async(messages) => {
+      const ai = require('openai');
+      return ai.send(messages);
     }
   },
   name: 'CodeceptPlaywright'
